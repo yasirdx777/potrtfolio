@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:potrtfolio/Model/Method.dart';
-import 'package:potrtfolio/UI/About.dart';
-import 'package:potrtfolio/UI/FeatureProject.dart';
-import 'package:potrtfolio/UI/Work.dart';
-import 'package:potrtfolio/Widget/AppBarTitle.dart';
-import 'package:potrtfolio/Widget/CustomText.dart';
-import 'package:potrtfolio/Widget/MainTiitle.dart';
-import 'package:potrtfolio/Widget/OSImages.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
+
+import '../Model/Method.dart';
+import '../Widget/AppBarTitle.dart';
+import '../Widget/CustomText.dart';
+import '../Widget/MainTiitle.dart';
+import 'About.dart';
+import 'FeatureProject.dart';
+import 'Work.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -82,20 +81,20 @@ class _HomePageState extends State<HomePage> {
           children: [
             //Mavigation Bar
             Container(
-              height: size.height * 0.14,
+              height: size.height * 0.08,
               width: size.width,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   children: [
-                    IconButton(
-                        icon: Icon(
-                          Icons.change_history,
-                          size: 32.0,
-                          color: Color(0xff64FFDA),
-                        ),
-                        onPressed: () {}),
-                    Spacer(),
+                    Container(
+                      height: size.height * 0.05,
+                      width: size.height * 0.05,
+                      child: Image(
+                        fit: BoxFit.contain,
+                        image: AssetImage("images/yrlogo.jpg"),
+                      ),
+                    ),
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -124,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                               Tab(
                                 child: AppBarTitle(
-                                  text: 'Contact Us',
+                                  text: 'Contact me',
                                 ),
                               ),
                             ],
@@ -133,38 +132,30 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 16.0),
-                      child: Card(
-                        elevation: 4.0,
-                        color: Color(0xff64FFDA),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6.0),
-                        ),
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: InkWell(
+                        onTap: () {
+                          method.launchURL("https://resume.io/r/ZJwT0CWBO");
+                        },
+                        hoverColor: Color(0xff64FFDA).withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(4.0),
                         child: Container(
-                          margin: EdgeInsets.all(0.85),
-                          height: size.height * 0.07,
-                          width: size.height * 0.20,
                           alignment: Alignment.center,
+                          height: size.height * 0.08,
+                          width: size.width * 0.14,
                           decoration: BoxDecoration(
-                            color: Color(0xff0A192F),
-                            borderRadius: BorderRadius.circular(6.0),
+                            border: Border.all(
+                              color: Color(0xff64FFDA),
+                            ),
+                            borderRadius: BorderRadius.circular(4.0),
                           ),
-                          child: FlatButton(
-                            hoverColor: Color(0xFF3E0449),
-                            onPressed: () {
-                              method.launchURL(
-                                  "https://resume.io/r/ZJwT0CWBO");
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8.0,
-                              ),
-                              child: Text(
-                                "Resume",
-                                style: TextStyle(
-                                  color: Color(0xff64FFDA),
-                                ),
-                              ),
+                          child: Text(
+                            "Resume",
+                            style: TextStyle(
+                              color: Color(0xff64FFDA),
+                              letterSpacing: 2.75,
+                              wordSpacing: 1.0,
+                              fontSize: 15.0,
                             ),
                           ),
                         ),
@@ -196,7 +187,8 @@ class _HomePageState extends State<HomePage> {
                           color: Color(0xffffA8B2D1),
                           iconSize: 16.0,
                           onPressed: () {
-                            method.launchURL("https://www.instagram.com/yasirdx777");
+                            method.launchURL(
+                                "https://www.instagram.com/yasirdx777");
                           }),
                       IconButton(
                         icon: FaIcon(FontAwesomeIcons.linkedin),
@@ -303,7 +295,7 @@ class _HomePageState extends State<HomePage> {
                                   borderRadius: BorderRadius.circular(4.0),
                                   child: Container(
                                     alignment: Alignment.center,
-                                    height: size.height * 0.09,
+                                    height: size.height * 0.08,
                                     width: size.width * 0.14,
                                     decoration: BoxDecoration(
                                       border: Border.all(
@@ -357,7 +349,7 @@ class _HomePageState extends State<HomePage> {
                                     height: size.height * 0.04,
                                   ),
                                   FeatureProject(
-                                    imagePath: "images/pic9.jpg",
+                                    imagePath: "images/iq_digicare.jpg",
                                     ontab: () {
                                       method.launchURL(
                                           "https://apps.apple.com/us/app/iq-digicare/id1548680750");
@@ -371,7 +363,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
 
                                   FeatureProject(
-                                    imagePath: "images/pic2.jpg",
+                                    imagePath: "images/m_d_s.jpg",
                                     ontab: () {
                                       method.launchURL(
                                           "https://apps.apple.com/us/app/m-d-s/id1546895007");
@@ -385,7 +377,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
 
                                   FeatureProject(
-                                    imagePath: "images/pic3.png",
+                                    imagePath: "images/rcell.jpg",
                                     ontab: () {
                                       method.launchURL(
                                           "https://play.google.com/store/apps/details?id=me.rcell.my&hl=en&gl=US");
@@ -399,7 +391,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
 
                                   FeatureProject(
-                                    imagePath: "images/pic4.jpg",
+                                    imagePath: "images/r_g.jpg",
                                     ontab: () {
                                       method.launchURL(
                                           "https://apps.apple.com/ae/app/royal-galaxy-restaurant/id1518417047?l=en");
@@ -413,21 +405,21 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   //ff
                                   FeatureProject(
-                                    imagePath: "images/pic5.jpg",
+                                    imagePath: "images/weeana_cinema.jpg",
                                     ontab: () {
                                       method.launchURL(
                                           "https://apps.apple.com/us/app/weeana-cinema/id1498299394");
                                     },
                                     projectDesc:
                                         "With this application you can know about the movies and series that exposure in our tv cable service now and preview it.",
-                                    projectTitle: "Gender Predictor",
+                                    projectTitle: "Weeana Cinema",
                                     tech1: "Swift",
                                     tech2: "UIKit",
                                     tech3: "AVPlayer",
                                   ),
 
                                   FeatureProject(
-                                    imagePath: "images/pic6.jpg",
+                                    imagePath: "images/weeana_tv.jpg",
                                     ontab: () {
                                       method.launchURL(
                                           "https://play.google.com/store/apps/details?id=com.iqnetwork.dx.weeanatv&hl=en&gl=US");
@@ -450,31 +442,17 @@ class _HomePageState extends State<HomePage> {
                                   ),
 
                                   FeatureProject(
-                                    imagePath: "images/pic6.jpg",
+                                    imagePath: "images/spb.gif",
                                     ontab: () {
                                       method.launchURL(
-                                          "https://play.google.com/store/apps/details?id=com.iqnetwork.dx.weeanatv&hl=en&gl=US");
+                                          "https://pub.dev/packages/square_progress_bar");
                                     },
                                     projectDesc:
-                                        "With this application now you can know the latest movies and series that exposure in our tv cable service.",
-                                    projectTitle: "Weeana TV",
-                                    tech1: "Kotlin",
-                                    tech2: "Java",
-                                    tech3: "Exoplayer",
-                                  ),
-
-                                  FeatureProject(
-                                    imagePath: "images/pic6.jpg",
-                                    ontab: () {
-                                      method.launchURL(
-                                          "https://play.google.com/store/apps/details?id=com.iqnetwork.dx.weeanatv&hl=en&gl=US");
-                                    },
-                                    projectDesc:
-                                        "With this application now you can know the latest movies and series that exposure in our tv cable service.",
-                                    projectTitle: "Weeana TV",
-                                    tech1: "Kotlin",
-                                    tech2: "Java",
-                                    tech3: "Exoplayer",
+                                        "Square progress bar package for flutter",
+                                    projectTitle: "square_progress_bar",
+                                    tech1: "Dart",
+                                    tech2: "Flutter",
+                                    tech3: "Custom Painter",
                                   ),
 
                                   //other Projects
@@ -522,7 +500,7 @@ class _HomePageState extends State<HomePage> {
                                         Wrap(
                                           children: [
                                             Text(
-                                              "Although I'm always open. Whether you have a question or just want to say hi, I'll try my \nbest to get back to you!",
+                                              "Although I'm always open to reply whether you have a question or just want to say hi, I'll try my \nbest to get back to you!",
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                 color: Colors.white
@@ -540,38 +518,32 @@ class _HomePageState extends State<HomePage> {
                                           onTap: () {
                                             method.launchEmail();
                                           },
-                                          child: Card(
-                                            elevation: 4.0,
-                                            color: Color(0xff64FFDA),
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(6.0),
-                                            ),
-                                            child: Container(
-                                              margin: EdgeInsets.all(0.85),
-                                              height: size.height * 0.09,
-                                              width: size.width * 0.10,
-                                              alignment: Alignment.center,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xff0A192F),
-                                                borderRadius:
-                                                    BorderRadius.circular(6.0),
+                                          hoverColor: Color(0xff64FFDA)
+                                              .withOpacity(0.2),
+                                          borderRadius:
+                                              BorderRadius.circular(4.0),
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            height: size.height * 0.08,
+                                            width: size.width * 0.14,
+                                            decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: Color(0xff64FFDA),
                                               ),
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                  horizontal: 8.0,
-                                                ),
-                                                child: Text(
-                                                  "Say Hello",
-                                                  style: TextStyle(
-                                                    color: Color(0xff64FFDA),
-                                                  ),
-                                                ),
+                                              borderRadius:
+                                                  BorderRadius.circular(4.0),
+                                            ),
+                                            child: Text(
+                                              "Say Hello",
+                                              style: TextStyle(
+                                                color: Color(0xff64FFDA),
+                                                letterSpacing: 2.75,
+                                                wordSpacing: 1.0,
+                                                fontSize: 15.0,
                                               ),
                                             ),
                                           ),
-                                        ),
+                                        )
                                       ],
                                     ),
                                   ),

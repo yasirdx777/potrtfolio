@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:potrtfolio/Model/Method.dart';
-import 'package:potrtfolio/Widget/CustomText.dart';
-import 'package:potrtfolio/Widget/MobileProject.dart';
-import 'package:potrtfolio/Widget/MobileWork.dart';
+import '../Model/Method.dart';
+import '../Widget/CustomText.dart';
+import '../Widget/MobileProject.dart';
+import '../Widget/MobileWork.dart';
 
 class MobileHome extends StatefulWidget {
   @override
@@ -40,40 +40,50 @@ class _MobileHomeState extends State<MobileHome> {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Color(0xff0A192F),
-      endDrawer: Drawer(
-          elevation: 6.0,
-          child: Column(
-            children: [
-              UserAccountsDrawerHeader(
-                  currentAccountPicture: CircleAvatar(
-                    child: Icon(Icons.person),
-                  ),
-                  accountName: Text("Yasir Romaya"),
-                  accountEmail: Text("yasir.romaya@gmail.com")),
-              ListTile(
-                title: Text("Share"),
-                leading: Icon(Icons.share),
-              ),
-              ListTile(
-                leading: Icon(Icons.group),
-                title: Text("About"),
-              ),
-              Expanded(
-                child: Text("Version 1.0.1"),
-              )
-            ],
-          )),
       appBar: AppBar(
         backgroundColor: Color(0xff0A192F),
         elevation: 0.0,
-        title: IconButton(
-          icon: Icon(
-            Icons.change_history,
-            size: 32.0,
-            color: Color(0xff64FFDA),
+        centerTitle: false,
+        title: Container(
+          height: 60,
+          width: 60,
+          child: Image(
+            fit: BoxFit.contain,
+            image: AssetImage("images/yrlogo.jpg"),
           ),
-          onPressed: () {},
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 23, top: 6, bottom: 6),
+            child: InkWell(
+              onTap: () {
+                method.launchURL("https://resume.io/r/ZJwT0CWBO");
+              },
+              hoverColor: Color(0xff64FFDA).withOpacity(0.2),
+              borderRadius: BorderRadius.circular(4.0),
+              child: Container(
+                alignment: Alignment.center,
+                height: 56.0,
+                width: 160.0,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Color(0xff64FFDA),
+                  ),
+                  borderRadius: BorderRadius.circular(4.0),
+                ),
+                child: Text(
+                  "Resume",
+                  style: TextStyle(
+                    color: Color(0xff64FFDA),
+                    letterSpacing: 2.75,
+                    wordSpacing: 1.0,
+                    fontSize: 15.0,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -83,7 +93,7 @@ class _MobileHomeState extends State<MobileHome> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBox(
-                height: size.height * 0.08,
+                height: size.height * 0.03,
               ),
               CustomText(
                 text: "Hi, my name is",
@@ -131,37 +141,35 @@ class _MobileHomeState extends State<MobileHome> {
               SizedBox(
                 height: size.height * 0.06,
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(4.0),
-                ),
-                color: Color(0xff64FFDA),
+
+              InkWell(
+                onTap: () {
+                  method.launchEmail();
+                },
+                hoverColor: Color(0xff64FFDA).withOpacity(0.2),
+                borderRadius: BorderRadius.circular(4.0),
                 child: Container(
                   alignment: Alignment.center,
-                  margin: EdgeInsets.all(0.75),
                   height: 56.0,
                   width: 160.0,
                   decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Color(0xff64FFDA),
+                    ),
                     borderRadius: BorderRadius.circular(4.0),
-                    color: Color(0xff0A192F),
                   ),
-                  child: MaterialButton(
-                    onPressed: () {
-                      method.launchEmail();
-                    },
-                    hoverColor: Colors.green,
-                    child: Text(
-                      "Get In Touch",
-                      style: TextStyle(
-                        color: Color(0xff64FFDA),
-                        letterSpacing: 2.75,
-                        wordSpacing: 1.0,
-                        fontSize: 15.0,
-                      ),
+                  child: Text(
+                    "Get In Touch",
+                    style: TextStyle(
+                      color: Color(0xff64FFDA),
+                      letterSpacing: 2.75,
+                      wordSpacing: 1.0,
+                      fontSize: 15.0,
                     ),
                   ),
                 ),
               ),
+
               SizedBox(
                 height: size.height * 0.08,
               ),
@@ -306,7 +314,7 @@ class _MobileHomeState extends State<MobileHome> {
                         width: size.width * 0.6,
                         child: Image(
                           fit: BoxFit.cover,
-                          image: AssetImage("images/pic1.jpeg"),
+                          image: AssetImage("images/me.jpg"),
                         ),
                       ),
                       Container(
@@ -390,8 +398,11 @@ class _MobileHomeState extends State<MobileHome> {
               ),
 
               MobileProject(
-                ontab: () {},
-                image: "images/pic9.jpg",
+                ontab: () {
+                  method.launchURL(
+                      "https://apps.apple.com/us/app/iq-digicare/id1548680750");
+                },
+                image: "images/iq_digicare.jpg",
               ),
 
               SizedBox(
@@ -399,8 +410,11 @@ class _MobileHomeState extends State<MobileHome> {
               ),
 
               MobileProject(
-                ontab: () {},
-                image: "images/pic2.jpg",
+                ontab: () {
+                  method.launchURL(
+                      "https://apps.apple.com/us/app/m-d-s/id1546895007");
+                },
+                image: "images/m_d_s.jpg",
               ),
 
               SizedBox(
@@ -408,8 +422,11 @@ class _MobileHomeState extends State<MobileHome> {
               ),
 
               MobileProject(
-                ontab: () {},
-                image: "images/pic3.png",
+                ontab: () {
+                  method.launchURL(
+                      "https://play.google.com/store/apps/details?id=me.rcell.my&hl=en&gl=US");
+                },
+                image: "images/rcell.jpg",
               ),
 
               SizedBox(
@@ -417,8 +434,11 @@ class _MobileHomeState extends State<MobileHome> {
               ),
 
               MobileProject(
-                ontab: () {},
-                image: "images/pic4.jpg",
+                ontab: () {
+                  method.launchURL(
+                      "https://apps.apple.com/ae/app/royal-galaxy-restaurant/id1518417047?l=en");
+                },
+                image: "images/r_g.jpg",
               ),
 
               SizedBox(
@@ -426,8 +446,11 @@ class _MobileHomeState extends State<MobileHome> {
               ),
 
               MobileProject(
-                ontab: () {},
-                image: "images/pic5.jpg",
+                ontab: () {
+                  method.launchURL(
+                      "https://apps.apple.com/us/app/weeana-cinema/id1498299394");
+                },
+                image: "images/weeana_cinema.jpg",
               ),
 
               SizedBox(
@@ -435,8 +458,11 @@ class _MobileHomeState extends State<MobileHome> {
               ),
 
               MobileProject(
-                ontab: () {},
-                image: "images/pic6.jpg",
+                ontab: () {
+                  method.launchURL(
+                      "https://play.google.com/store/apps/details?id=com.iqnetwork.dx.weeanatv&hl=en&gl=US");
+                },
+                image: "images/weeana_tv.jpg",
               ),
 
               SizedBox(
@@ -444,251 +470,11 @@ class _MobileHomeState extends State<MobileHome> {
               ),
 
               MobileProject(
-                ontab: () {},
-                image: "images/pic7.jpg",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic8.jpg",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic10.jpg",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic11.jpg",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic102.gif",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic104.png",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic105.png",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic106.png",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic107.jfif",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic108.jfif",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic109.jfif",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              MobileProject(
-                ontab: () {},
-                image: "images/pic110.jfif",
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              Row(
-                children: [
-                  Container(
-                    width: size.width * 0.42,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic101.png"),
-                    ),
-                  ),
-                  Spacer(),
-                  Container(
-                    width: size.width * 0.42,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic103.png"),
-                    ),
-                  ),
-                ],
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              Row(
-                children: [
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic111.gif"),
-                    ),
-                  ),
-                  Spacer(),
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic113.jfif"),
-                    ),
-                  ),
-                ],
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              Row(
-                children: [
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic114.png"),
-                    ),
-                  ),
-                  Spacer(),
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic115.png"),
-                    ),
-                  ),
-                ],
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              Row(
-                children: [
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic116.jfif"),
-                    ),
-                  ),
-                  Spacer(),
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic117.png"),
-                    ),
-                  ),
-                ],
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              Row(
-                children: [
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic118.jpeg"),
-                    ),
-                  ),
-                  Spacer(),
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic119.jpeg"),
-                    ),
-                  ),
-                ],
-              ),
-
-              SizedBox(
-                height: size.height * 0.07,
-              ),
-
-              Row(
-                children: [
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic120.png"),
-                    ),
-                  ),
-                  Spacer(),
-                  Container(
-                    width: size.width * 0.44,
-                    height: size.height * 0.6,
-                    child: Image(
-                      image: AssetImage("images/pic121.png"),
-                    ),
-                  ),
-                ],
+                ontab: () {
+                  method.launchURL(
+                      "https://pub.dev/packages/square_progress_bar");
+                },
+                image: "images/spb.gif",
               ),
 
               SizedBox(
@@ -727,7 +513,7 @@ class _MobileHomeState extends State<MobileHome> {
                         alignment: WrapAlignment.center,
                         children: [
                           Text(
-                            "Although I'm always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
+                            "Although I'm always open to reply whether you have a question or just want to say hi, I'll try my best to get back to you!",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.white.withOpacity(0.4),
@@ -740,30 +526,29 @@ class _MobileHomeState extends State<MobileHome> {
                       SizedBox(
                         height: size.height * 0.07,
                       ),
-                      Card(
-                        elevation: 4.0,
-                        color: Color(0xff64FFDA),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6.0),
-                        ),
+                      InkWell(
+                        onTap: () {
+                          method.launchEmail();
+                        },
+                        hoverColor: Color(0xff64FFDA).withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(4.0),
                         child: Container(
-                          margin: EdgeInsets.all(0.85),
-                          height: size.height * 0.10,
-                          width: size.width * 0.30,
                           alignment: Alignment.center,
+                          height: 56.0,
+                          width: 160.0,
                           decoration: BoxDecoration(
-                            color: Color(0xff0A192F),
-                            borderRadius: BorderRadius.circular(6.0),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8.0,
+                            border: Border.all(
+                              color: Color(0xff64FFDA),
                             ),
-                            child: Text(
-                              "Say Hello",
-                              style: TextStyle(
-                                color: Color(0xff64FFDA),
-                              ),
+                            borderRadius: BorderRadius.circular(4.0),
+                          ),
+                          child: Text(
+                            "Say Hello",
+                            style: TextStyle(
+                              color: Color(0xff64FFDA),
+                              letterSpacing: 2.75,
+                              wordSpacing: 1.0,
+                              fontSize: 15.0,
                             ),
                           ),
                         ),
@@ -809,6 +594,14 @@ class _MobileHomeState extends State<MobileHome> {
                     ),
                     onPressed: () {
                       method.launchURL("https://www.instagram.com/yasirdx777");
+                    },
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.call),
+                    color: Color(0xffffA8B2D1),
+                    iconSize: 16.0,
+                    onPressed: () {
+                      method.launchCaller();
                     },
                   ),
                   IconButton(

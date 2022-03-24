@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'MobileWorkBox.dart';
+
 class MobileWork extends StatefulWidget {
   @override
   _MobileWorkState createState() => _MobileWorkState();
@@ -13,7 +15,7 @@ class _MobileWorkState extends State<MobileWork> {
     return ConstrainedBox(
       constraints: BoxConstraints.tightFor(
         width: size.width,
-        height: size.height * 1.7,
+        height: size.height * 1.4,
       ),
       child: Column(
         children: [
@@ -70,11 +72,12 @@ class _MobileWorkState extends State<MobileWork> {
                     )),
               ),
               Expanded(
-                  flex: 4,
-                  child: Container(
-                    height: size.height * 1.7,
-                    child: MobileWork(),
-                  ))
+                flex: 4,
+                child: Container(
+                  height: size.height * 1.2,
+                  child: MobileWorkBox(),
+                ),
+              )
             ],
           )
         ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:potrtfolio/Widget/work_custom_data.dart';
+import 'work_custom_data.dart';
 
-class MobileWork extends StatelessWidget {
+class MobileWorkBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,8 +21,7 @@ class MobileWork extends StatelessWidget {
           duration: "Mar - 2021 to Nov - 2021",
         ),
         WorkCustomData(
-          title:
-              "iOS Applications Developer At Crocxi. Baghdad, IQ",
+          title: "iOS Applications Developer At Crocxi. Baghdad, IQ",
           subTitle:
               "Where I developed several applications including e-commerce, airline ticket system, \nsand medical delegate system application.",
           duration: "Jan - 2019 to Aug - 2019",

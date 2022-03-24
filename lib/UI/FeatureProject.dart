@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:potrtfolio/Widget/CustomText.dart';
+import '../Widget/CustomText.dart';
 
 class FeatureProject extends StatelessWidget {
   final String imagePath;
@@ -151,7 +151,7 @@ class FeatureProject extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         IconButton(
-                          icon: FaIcon(FontAwesomeIcons.appStore),
+                          icon: FaIcon(FontAwesomeIcons.link),
                           color: Colors.white.withOpacity(0.3),
                           onPressed: ontab,
                         ),
