@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import '../Model/Method.dart';
-import '../Widget/CustomText.dart';
-import '../Widget/MobileProject.dart';
-import '../Widget/MobileWork.dart';
+import '../widget/custom_text.dart';
+import '../widget/mobile_project.dart';
+import '../widget/mobile_work.dart';
 
 class MobileHome extends StatefulWidget {
+  const MobileHome({Key? key}) : super(key: key);
+
   @override
   _MobileHomeState createState() => _MobileHomeState();
 }
@@ -16,7 +19,7 @@ class _MobileHomeState extends State<MobileHome> {
       children: [
         Icon(
           Icons.skip_next,
-          color: Color(0xff64FFDA).withOpacity(0.6),
+          color: const Color(0xff64FFDA).withOpacity(0.6),
           size: 14.0,
         ),
         SizedBox(
@@ -24,7 +27,7 @@ class _MobileHomeState extends State<MobileHome> {
         ),
         Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             color: Color(0xff717C99),
             letterSpacing: 1.75,
           ),
@@ -38,17 +41,17 @@ class _MobileHomeState extends State<MobileHome> {
     Method method = Method();
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color(0xff0A192F),
+      backgroundColor: const Color(0xff0A192F),
       appBar: AppBar(
-        backgroundColor: Color(0xff0A192F),
+        backgroundColor: const Color(0xff0A192F),
         elevation: 0.0,
         centerTitle: false,
-        title: Container(
+        title: const SizedBox(
           height: 60,
           width: 60,
           child: Image(
             fit: BoxFit.contain,
-            image: AssetImage("images/yrlogo.jpg"),
+            image: AssetImage("assets/images/yrlogo.jpg"),
           ),
         ),
         actions: [
@@ -58,7 +61,7 @@ class _MobileHomeState extends State<MobileHome> {
               onTap: () {
                 method.launchURL("https://resume.io/r/ZJwT0CWBO");
               },
-              hoverColor: Color(0xff64FFDA).withOpacity(0.2),
+              hoverColor: const Color(0xff64FFDA).withOpacity(0.2),
               borderRadius: BorderRadius.circular(4.0),
               child: Container(
                 alignment: Alignment.center,
@@ -66,11 +69,11 @@ class _MobileHomeState extends State<MobileHome> {
                 width: 160.0,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Color(0xff64FFDA),
+                    color: const Color(0xff64FFDA),
                   ),
                   borderRadius: BorderRadius.circular(4.0),
                 ),
-                child: Text(
+                child: const Text(
                   "Resume",
                   style: TextStyle(
                     color: Color(0xff64FFDA),
@@ -94,7 +97,7 @@ class _MobileHomeState extends State<MobileHome> {
               SizedBox(
                 height: size.height * 0.03,
               ),
-              CustomText(
+              const CustomText(
                 text: "Hi, my name is",
                 textsize: 16.0,
                 color: Color(0xff41FBDA),
@@ -103,7 +106,7 @@ class _MobileHomeState extends State<MobileHome> {
               SizedBox(
                 height: size.height * 0.02,
               ),
-              CustomText(
+              const CustomText(
                 text: "Yasir Romaya.",
                 textsize: 52.0,
                 color: Color(0xffCCD6F6),
@@ -115,7 +118,7 @@ class _MobileHomeState extends State<MobileHome> {
               CustomText(
                 text: "I build things for the iOS and Android.",
                 textsize: 42.0,
-                color: Color(0xffCCD6F6).withOpacity(0.6),
+                color: const Color(0xffCCD6F6).withOpacity(0.6),
                 fontWeight: FontWeight.w700,
               ),
               SizedBox(
@@ -124,7 +127,7 @@ class _MobileHomeState extends State<MobileHome> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Wrap(
-                  children: [
+                  children: const [
                     Text(
                       "I'm a mobile application developer based in Suli, IQ specializing in building (and occasionally designing) exceptional applications.",
                       style: TextStyle(
@@ -145,7 +148,7 @@ class _MobileHomeState extends State<MobileHome> {
                 onTap: () {
                   method.launchEmail();
                 },
-                hoverColor: Color(0xff64FFDA).withOpacity(0.2),
+                hoverColor: const Color(0xff64FFDA).withOpacity(0.2),
                 borderRadius: BorderRadius.circular(4.0),
                 child: Container(
                   alignment: Alignment.center,
@@ -153,11 +156,11 @@ class _MobileHomeState extends State<MobileHome> {
                   width: 160.0,
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: Color(0xff64FFDA),
+                      color: const Color(0xff64FFDA),
                     ),
                     borderRadius: BorderRadius.circular(4.0),
                   ),
-                  child: Text(
+                  child: const Text(
                     "Get In Touch",
                     style: TextStyle(
                       color: Color(0xff64FFDA),
@@ -176,7 +179,7 @@ class _MobileHomeState extends State<MobileHome> {
               //About me
               FittedBox(
                 fit: BoxFit.cover,
-                child: Container(
+                child: SizedBox(
                   width: size.width,
                   //color: Colors.purple,
                   child: Column(
@@ -185,16 +188,16 @@ class _MobileHomeState extends State<MobileHome> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          CustomText(
+                          const CustomText(
                             text: "01.",
                             textsize: 20.0,
                             color: Color(0xff61F9D5),
                             fontWeight: FontWeight.w700,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 12.0,
                           ),
-                          CustomText(
+                          const CustomText(
                             text: "About Me",
                             textsize: 26.0,
                             color: Color(0xffCCD6F6),
@@ -206,7 +209,7 @@ class _MobileHomeState extends State<MobileHome> {
                           Container(
                             width: size.width / 4,
                             height: 1.10,
-                            color: Color(0xff303C55),
+                            color: const Color(0xff303C55),
                           ),
                         ],
                       ),
@@ -217,7 +220,7 @@ class _MobileHomeState extends State<MobileHome> {
 
                       //About me desc
                       Wrap(
-                        children: [
+                        children: const [
                           CustomText(
                             text:
                                 "Hello! I'm Yasir, A mobile application developer based in Suli, IQ.\nI enjoy creating things that live on the internet, whether that be applications, open source packages. My goal is to always build products that provide pixel-perfect, performant experiences.\n",
@@ -289,7 +292,7 @@ class _MobileHomeState extends State<MobileHome> {
 
               //Image
               Center(
-                child: Container(
+                child: SizedBox(
                   height: size.height * 0.6,
                   width: size.width * 0.7,
                   child: Stack(
@@ -299,27 +302,27 @@ class _MobileHomeState extends State<MobileHome> {
                         right: 20,
                         left: 50.0,
                         child: Card(
-                          color: Color(0xff61F9D5),
+                          color: const Color(0xff61F9D5),
                           child: Container(
-                            margin: EdgeInsets.all(2.75),
+                            margin: const EdgeInsets.all(2.75),
                             height: size.height * 0.45,
                             width: size.width * 0.66,
-                            color: Color(0xff0A192F),
+                            color: const Color(0xff0A192F),
                           ),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         height: size.height * 0.5,
                         width: size.width * 0.6,
-                        child: Image(
+                        child: const Image(
                           fit: BoxFit.cover,
-                          image: AssetImage("images/me.jpg"),
+                          image: AssetImage("assets/images/me.jpg"),
                         ),
                       ),
                       Container(
                         height: size.height * 0.5,
                         width: size.width * 0.6,
-                        color: Color(0xff61F9D5).withOpacity(0.5),
+                        color: const Color(0xff61F9D5).withOpacity(0.5),
                       ),
                     ],
                   ),
@@ -330,16 +333,16 @@ class _MobileHomeState extends State<MobileHome> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CustomText(
+                  const CustomText(
                     text: "02.",
                     textsize: 20.0,
                     color: Color(0xff61F9D5),
                     fontWeight: FontWeight.w700,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 12.0,
                   ),
-                  CustomText(
+                  const CustomText(
                     text: "Where I've Worked",
                     textsize: 26.0,
                     color: Color(0xffCCD6F6),
@@ -351,12 +354,12 @@ class _MobileHomeState extends State<MobileHome> {
                   Container(
                     width: size.width * 0.08,
                     height: 1.10,
-                    color: Color(0xff303C55),
+                    color: const Color(0xff303C55),
                   ),
                 ],
               ),
 
-              MobileWork(),
+              const MobileWork(),
 
               SizedBox(
                 height: size.height * 0.07,
@@ -366,16 +369,16 @@ class _MobileHomeState extends State<MobileHome> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CustomText(
+                  const CustomText(
                     text: "03.",
                     textsize: 20.0,
                     color: Color(0xff61F9D5),
                     fontWeight: FontWeight.w700,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 12.0,
                   ),
-                  CustomText(
+                  const CustomText(
                     text: "Some Things I've Built",
                     textsize: 26.0,
                     color: Color(0xffCCD6F6),
@@ -387,7 +390,7 @@ class _MobileHomeState extends State<MobileHome> {
                   Container(
                     width: size.width * 0.04,
                     height: 1.10,
-                    color: Color(0xff303C55),
+                    color: const Color(0xff303C55),
                   ),
                 ],
               ),
@@ -404,7 +407,7 @@ class _MobileHomeState extends State<MobileHome> {
                 onYouTubeTab: () {
                   method.launchURL("https://youtu.be/VFIVBJGrRoY");
                 },
-                image: "images/iq_digicare_m.jpg",
+                image: "assets/images/iq_digicare_m.jpg",
               ),
 
               SizedBox(
@@ -419,7 +422,7 @@ class _MobileHomeState extends State<MobileHome> {
                 onYouTubeTab: () {
                   method.launchURL("https://youtu.be/lIKKDZ2VJC8");
                 },
-                image: "images/m_d_s_m.jpg",
+                image: "assets/images/m_d_s_m.jpg",
               ),
 
               SizedBox(
@@ -432,7 +435,7 @@ class _MobileHomeState extends State<MobileHome> {
                       "https://play.google.com/store/apps/details?id=me.rcell.my&hl=en&gl=US");
                 },
                 onStoreTabIcon: FontAwesomeIcons.googlePlay,
-                image: "images/rcell_m.jpg",
+                image: "assets/images/rcell_m.jpg",
               ),
 
               SizedBox(
@@ -447,7 +450,7 @@ class _MobileHomeState extends State<MobileHome> {
                 onYouTubeTab: () {
                   method.launchURL("https://youtu.be/7dKQAt5srIU");
                 },
-                image: "images/r_g_m.jpg",
+                image: "assets/images/r_g_m.jpg",
               ),
 
               SizedBox(
@@ -462,7 +465,7 @@ class _MobileHomeState extends State<MobileHome> {
                 onYouTubeTab: () {
                   method.launchURL("https://youtu.be/mXIjgM3dPSc");
                 },
-                image: "images/weeana_cinema_m.jpg",
+                image: "assets/images/weeana_cinema_m.jpg",
               ),
 
               SizedBox(
@@ -479,7 +482,7 @@ class _MobileHomeState extends State<MobileHome> {
                   method.launchURL(
                       "https://youtube.com/shorts/omsiJM4hhCo?feature=share");
                 },
-                image: "images/weeana_tv_m.jpg",
+                image: "assets/images/weeana_tv_m.jpg",
               ),
 
               SizedBox(
@@ -492,7 +495,7 @@ class _MobileHomeState extends State<MobileHome> {
                       "https://pub.dev/packages/square_progress_bar");
                 },
                 onStoreTabIcon: FontAwesomeIcons.github,
-                image: "images/spb_m.gif",
+                image: "assets/images/spb_m.gif",
               ),
 
               SizedBox(
@@ -508,16 +511,16 @@ class _MobileHomeState extends State<MobileHome> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CustomText(
+                      const CustomText(
                         text: "0.4 What's Next?",
                         textsize: 16.0,
                         color: Color(0xff41FBDA),
                         letterSpacing: 3.0,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 16.0,
                       ),
-                      CustomText(
+                      const CustomText(
                         text: "Get In Touch",
                         textsize: 42.0,
                         color: Colors.white,
@@ -548,7 +551,7 @@ class _MobileHomeState extends State<MobileHome> {
                         onTap: () {
                           method.launchEmail();
                         },
-                        hoverColor: Color(0xff64FFDA).withOpacity(0.2),
+                        hoverColor: const Color(0xff64FFDA).withOpacity(0.2),
                         borderRadius: BorderRadius.circular(4.0),
                         child: Container(
                           alignment: Alignment.center,
@@ -556,11 +559,11 @@ class _MobileHomeState extends State<MobileHome> {
                           width: 160.0,
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: Color(0xff64FFDA),
+                              color: const Color(0xff64FFDA),
                             ),
                             borderRadius: BorderRadius.circular(4.0),
                           ),
-                          child: Text(
+                          child: const Text(
                             "Say Hello",
                             style: TextStyle(
                               color: Color(0xff64FFDA),
@@ -584,7 +587,7 @@ class _MobileHomeState extends State<MobileHome> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       FontAwesomeIcons.github,
                       color: Colors.white,
                       size: 15.0,
@@ -594,7 +597,7 @@ class _MobileHomeState extends State<MobileHome> {
                     },
                   ),
                   IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       FontAwesomeIcons.linkedin,
                       color: Colors.white,
                       size: 15.0,
@@ -605,7 +608,7 @@ class _MobileHomeState extends State<MobileHome> {
                     },
                   ),
                   IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       FontAwesomeIcons.instagram,
                       color: Colors.white,
                       size: 15.0,
@@ -623,7 +626,7 @@ class _MobileHomeState extends State<MobileHome> {
                     },
                   ),
                   IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.mail,
                       color: Colors.white,
                       size: 15.0,

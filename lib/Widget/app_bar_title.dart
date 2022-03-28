@@ -4,10 +4,12 @@ class AppBarTitle extends StatelessWidget {
   final String text;
   //final Function ontab;
 
-  AppBarTitle({
-    @required this.text,
+  const AppBarTitle({
+    required this.text,
     /*@required this.ontab*/
-  });
+    Key? key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -18,7 +20,7 @@ class AppBarTitle extends StatelessWidget {
         child: Text(
           text,
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 14.0,
             letterSpacing: 3.0,
             color: Color(0xffBAD0D0),

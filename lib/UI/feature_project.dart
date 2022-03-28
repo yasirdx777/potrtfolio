@@ -1,37 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../Widget/CustomText.dart';
+
+import '../widget/custom_text.dart';
 
 class FeatureProject extends StatelessWidget {
   final String imagePath;
   final String projectTitle;
   final String projectDesc;
 
-  final Function onStoreTab;
-  final onStoreTabIcon;
-  final onYouTubeTab;
-  final onYouTubeTabIcon;
+  final VoidCallback onStoreTab;
+  final IconData? onStoreTabIcon;
+  final VoidCallback? onYouTubeTab;
+  final IconData? onYouTubeTabIcon;
 
-  FeatureProject({
-    this.imagePath,
-    this.onStoreTab,
-    this.onStoreTabIcon,
-    this.onYouTubeTab,
-    this.onYouTubeTabIcon,
-    this.projectDesc,
-    this.projectTitle,
-  });
+  const FeatureProject(
+      {required this.imagePath,
+      required this.onStoreTab,
+      this.onStoreTabIcon,
+      this.onYouTubeTab,
+      this.onYouTubeTabIcon,
+      required this.projectDesc,
+      required this.projectTitle,
+      Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       height: size.height / 0.999,
       width: size.width - 100,
       //color: Colors.tealAccent,
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: size.height - 100,
             width: size.width - 84,
             child: Stack(
@@ -40,7 +42,7 @@ class FeatureProject extends StatelessWidget {
                 Positioned(
                   top: size.height * 0.02,
                   left: 20.0,
-                  child: Container(
+                  child: SizedBox(
                     height: size.height * 0.60,
                     width: size.width * 0.5,
                     //color: Colors.redAccent,
@@ -59,7 +61,7 @@ class FeatureProject extends StatelessWidget {
                     alignment: Alignment.center,
                     height: size.height * 0.3,
                     width: size.width * 0.22,
-                    color: Color(0xff172A45),
+                    color: const Color(0xff172A45),
                     child: Wrap(
                       alignment: WrapAlignment.center,
                       children: [
@@ -81,7 +83,7 @@ class FeatureProject extends StatelessWidget {
                 Positioned(
                   top: 16.0,
                   right: 10.0,
-                  child: Container(
+                  child: SizedBox(
                     height: size.height * 0.10,
                     width: size.width * 0.25,
                     //color: Colors.indigo,
@@ -105,7 +107,7 @@ class FeatureProject extends StatelessWidget {
                 Positioned(
                   top: size.height * 0.45,
                   right: 10.0,
-                  child: Container(
+                  child: SizedBox(
                     height: size.height * 0.08,
                     width: size.width * 0.25,
                     // color: Colors.indigo,
@@ -128,7 +130,7 @@ class FeatureProject extends StatelessWidget {
                     ? Positioned(
                         top: size.height * 0.45,
                         right: 60.0,
-                        child: Container(
+                        child: SizedBox(
                           height: size.height * 0.08,
                           width: size.width * 0.25,
                           // color: Colors.indigo,
@@ -145,7 +147,7 @@ class FeatureProject extends StatelessWidget {
                           ),
                         ),
                       )
-                    : SizedBox(),
+                    : const SizedBox(),
               ],
             ),
           ),

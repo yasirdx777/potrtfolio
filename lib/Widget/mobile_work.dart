@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../widget/custom_text.dart';
-import '../widget/work_box.dart';
+import 'mobile_work_box.dart';
 
-class Work extends StatefulWidget {
-  const Work({Key? key}) : super(key: key);
+class MobileWork extends StatefulWidget {
+  const MobileWork({Key? key}) : super(key: key);
 
   @override
-  _WorkState createState() => _WorkState();
+  _MobileWorkState createState() => _MobileWorkState();
 }
 
-class _WorkState extends State<Work> {
+class _MobileWorkState extends State<MobileWork> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -22,34 +21,6 @@ class _WorkState extends State<Work> {
       ),
       child: Column(
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const CustomText(
-                text: "02.",
-                textsize: 20.0,
-                color: Color(0xff61F9D5),
-                fontWeight: FontWeight.w700,
-              ),
-              const SizedBox(
-                width: 12.0,
-              ),
-              const CustomText(
-                text: "Where I've Worked",
-                textsize: 26.0,
-                color: Color(0xffCCD6F6),
-                fontWeight: FontWeight.w700,
-              ),
-              SizedBox(
-                width: size.width * 0.01,
-              ),
-              Container(
-                width: size.width / 4,
-                height: 1.10,
-                color: const Color(0xff303C55),
-              ),
-            ],
-          ),
           SizedBox(
             height: size.height * 0.07,
           ),
@@ -104,7 +75,7 @@ class _WorkState extends State<Work> {
                 flex: 4,
                 child: SizedBox(
                   height: size.height * 1.2,
-                  child: const WorkBox(),
+                  child: const MobileWorkBox(),
                 ),
               )
             ],

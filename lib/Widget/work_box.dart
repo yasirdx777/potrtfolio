@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'work_custom_data.dart';
 
 class WorkBox extends StatelessWidget {
+  const WorkBox({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: const [
         WorkCustomData(
           title: "Lead Mobile Applications Developer At iQ Network. Suli,IQ",
           subTitle:

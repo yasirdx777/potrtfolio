@@ -1,9 +1,11 @@
 import 'package:flutter/widgets.dart';
 
-import 'HomePage.dart';
-import 'MobileHome.dart';
+import 'home_page.dart';
+import 'mobile_home.dart';
 
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   _HomeState createState() => _HomeState();
 }

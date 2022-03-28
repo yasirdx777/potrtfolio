@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import '../Widget/CustomText.dart';
+
+import '../widget/custom_text.dart';
 
 class About extends StatelessWidget {
+  const About({Key? key}) : super(key: key);
+
   Widget technology(BuildContext context, String text) {
     return Row(
       children: [
         Icon(
           Icons.skip_next,
-          color: Color(0xff64FFDA).withOpacity(0.6),
+          color: const Color(0xff64FFDA).withOpacity(0.6),
           size: 14.0,
         ),
         SizedBox(
@@ -15,7 +18,7 @@ class About extends StatelessWidget {
         ),
         Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             color: Color(0xff717C99),
             letterSpacing: 1.75,
           ),
@@ -27,13 +30,13 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       height: size.height,
       width: size.width - 100,
       child: Row(
         children: [
           //About me
-          Container(
+          SizedBox(
             height: size.height * 0.9,
             width: size.width / 2 - 100,
             child: Column(
@@ -42,16 +45,16 @@ class About extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    CustomText(
+                    const CustomText(
                       text: "01.",
                       textsize: 20.0,
                       color: Color(0xff61F9D5),
                       fontWeight: FontWeight.w700,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 12.0,
                     ),
-                    CustomText(
+                    const CustomText(
                       text: "About Me",
                       textsize: 26.0,
                       color: Color(0xffCCD6F6),
@@ -63,7 +66,7 @@ class About extends StatelessWidget {
                     Container(
                       width: size.width / 4,
                       height: 1.10,
-                      color: Color(0xff303C55),
+                      color: const Color(0xff303C55),
                     ),
                   ],
                 ),
@@ -74,7 +77,7 @@ class About extends StatelessWidget {
 
                 //About me desc
                 Wrap(
-                  children: [
+                  children: const [
                     CustomText(
                       text:
                           "Hello! I'm Yasir, A mobile application developer based in Suli, IQ.\n\nI enjoy creating things that live on the internet, whether that be applications, open source packages. My goal is to always build products that provide pixel-perfect, performant experiences.\n\n",
@@ -100,12 +103,12 @@ class About extends StatelessWidget {
                   ],
                 ),
 
-                Container(
+                SizedBox(
                   height: size.height * 0.15,
                   width: size.width,
                   child: Wrap(
                     children: [
-                      Container(
+                      SizedBox(
                         width: size.width * 0.20,
                         height: size.height * 0.15,
                         child: Column(
@@ -117,7 +120,7 @@ class About extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: size.width * 0.15,
                         height: size.height * 0.15,
                         child: Column(
@@ -138,7 +141,7 @@ class About extends StatelessWidget {
 
           //Profile Image
           Expanded(
-            child: Container(
+            child: SizedBox(
               height: size.height / 1.5,
               width: size.width / 2 - 100,
               // color: Colors.white,
@@ -149,16 +152,16 @@ class About extends StatelessWidget {
                     top: size.height * 0.12,
                     left: size.width * 0.120,
                     child: Card(
-                      color: Color(0xff61F9D5),
+                      color: const Color(0xff61F9D5),
                       child: Container(
-                        margin: EdgeInsets.all(2.75),
+                        margin: const EdgeInsets.all(2.75),
                         height: size.height / 2,
                         width: size.width / 5,
-                        color: Color(0xff0A192F),
+                        color: const Color(0xff0A192F),
                       ),
                     ),
                   ),
-                  CustomImageAnimation()
+                  const CustomImageAnimation()
                 ],
               ),
             ),
@@ -170,14 +173,14 @@ class About extends StatelessWidget {
 }
 
 class CustomImageAnimation extends StatefulWidget {
-  CustomImageAnimation({Key key}) : super(key: key);
+  const CustomImageAnimation({Key? key}) : super(key: key);
 
   @override
   _CustomImageAnimationState createState() => _CustomImageAnimationState();
 }
 
 class _CustomImageAnimationState extends State<CustomImageAnimation> {
-  Color customImageColor = Color(0xff61F9D5).withOpacity(0.5);
+  Color customImageColor = const Color(0xff61F9D5).withOpacity(0.5);
   // ignore: unused_field
   int _enterCounter = 0;
   // ignore: unused_field
@@ -193,7 +196,7 @@ class _CustomImageAnimationState extends State<CustomImageAnimation> {
 
   void _incrementExit(PointerEvent details) {
     setState(() {
-      customImageColor = Color(0xff61F9D5).withOpacity(0.5);
+      customImageColor = const Color(0xff61F9D5).withOpacity(0.5);
       _exitCounter++;
     });
   }
@@ -219,9 +222,9 @@ class _CustomImageAnimationState extends State<CustomImageAnimation> {
             height: size.height / 2,
             width: size.width / 5,
             color: Colors.black54,
-            child: Image(
+            child: const Image(
               fit: BoxFit.cover,
-              image: AssetImage("images/me.jpg"),
+              image: AssetImage("assets/images/me.jpg"),
             ),
           ),
           Container(

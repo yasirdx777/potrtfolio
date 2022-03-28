@@ -4,25 +4,26 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class MobileProject extends StatelessWidget {
   final String image;
 
-  final Function onStoreTab;
-  final onStoreTabIcon;
-  final onYouTubeTab;
-  final onYouTubeTabIcon;
+  final VoidCallback onStoreTab;
+  final IconData? onStoreTabIcon;
+  final VoidCallback? onYouTubeTab;
+  final IconData? onYouTubeTabIcon;
 
-  MobileProject({
-    this.onStoreTab,
+  const MobileProject({
+    required this.onStoreTab,
     this.onStoreTabIcon,
     this.onYouTubeTab,
     this.onYouTubeTabIcon,
-    this.image,
-  });
+    required this.image,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Stack(
         children: [
-          Container(
+          SizedBox(
             height: MediaQuery.of(context).size.height * 0.4,
             width: MediaQuery.of(context).size.width * 1,
             child: Image(
@@ -53,7 +54,7 @@ class MobileProject extends StatelessWidget {
                     onPressed: onYouTubeTab,
                   ),
                 )
-              : SizedBox(),
+              : const SizedBox(),
         ],
       ),
     );

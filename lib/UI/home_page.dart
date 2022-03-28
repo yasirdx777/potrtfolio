@@ -3,21 +3,23 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../Model/Method.dart';
-import '../Widget/AppBarTitle.dart';
-import '../Widget/CustomText.dart';
-import '../Widget/MainTiitle.dart';
-import 'About.dart';
-import 'FeatureProject.dart';
-import 'Work.dart';
+import '../widget/app_bar_title.dart';
+import '../widget/custom_text.dart';
+import '../widget/main_tiitle.dart';
+import 'about.dart';
+import 'feature_project.dart';
+import 'work.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   Method method = Method();
-  AutoScrollController _autoScrollController;
+  late AutoScrollController _autoScrollController;
   final scrollDirection = Axis.vertical;
 
   bool isExpaned = true;
@@ -39,13 +41,13 @@ class _HomePageState extends State<HomePage> {
                 ? setState(
                     () {
                       isExpaned = false;
-                      print('setState is called');
+                      debugPrint('setState is called');
                     },
                   )
                 : {}
             : isExpaned != true
                 ? setState(() {
-                    print('setState is called');
+                    debugPrint('setState is called');
                     isExpaned = true;
                   })
                 : {},
@@ -59,11 +61,11 @@ class _HomePageState extends State<HomePage> {
     _autoScrollController.highlight(index);
   }
 
-  Widget _wrapScrollTag({int index, Widget child}) {
+  Widget _wrapScrollTag({int? index, Widget? child}) {
     return AutoScrollTag(
       key: ValueKey(index),
       controller: _autoScrollController,
-      index: index,
+      index: index ?? 0,
       child: child,
     );
   }
@@ -72,27 +74,27 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color(0xff0A192F),
+      backgroundColor: const Color(0xff0A192F),
       body: SingleChildScrollView(
-        physics: ScrollPhysics(),
+        physics: const ScrollPhysics(),
         primary: true,
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
             //Mavigation Bar
-            Container(
+            SizedBox(
               height: size.height * 0.08,
               width: size.width,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   children: [
-                    Container(
+                    SizedBox(
                       height: size.height * 0.05,
                       width: size.height * 0.05,
-                      child: Image(
+                      child: const Image(
                         fit: BoxFit.contain,
-                        image: AssetImage("images/yrlogo.jpg"),
+                        image: AssetImage("assets/images/yrlogo.jpg"),
                       ),
                     ),
                     Expanded(
@@ -105,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                             onTap: (index) async {
                               _scrollToIndex(index);
                             },
-                            tabs: [
+                            tabs: const [
                               Tab(
                                 child: AppBarTitle(
                                   text: 'About',
@@ -137,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                         onTap: () {
                           method.launchURL("https://resume.io/r/ZJwT0CWBO");
                         },
-                        hoverColor: Color(0xff64FFDA).withOpacity(0.2),
+                        hoverColor: const Color(0xff64FFDA).withOpacity(0.2),
                         borderRadius: BorderRadius.circular(4.0),
                         child: Container(
                           alignment: Alignment.center,
@@ -145,11 +147,11 @@ class _HomePageState extends State<HomePage> {
                           width: size.width * 0.14,
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: Color(0xff64FFDA),
+                              color: const Color(0xff64FFDA),
                             ),
                             borderRadius: BorderRadius.circular(4.0),
                           ),
-                          child: Text(
+                          child: const Text(
                             "Resume",
                             style: TextStyle(
                               color: Color(0xff64FFDA),
@@ -176,22 +178,22 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       IconButton(
-                          icon: FaIcon(FontAwesomeIcons.github),
-                          color: Color(0xffffA8B2D1),
+                          icon: const FaIcon(FontAwesomeIcons.github),
+                          color: const Color(0xffffA8B2D1),
                           iconSize: 16.0,
                           onPressed: () {
                             method.launchURL("https://github.com/yasirdx777");
                           }),
                       IconButton(
-                          icon: FaIcon(FontAwesomeIcons.instagram),
-                          color: Color(0xffffA8B2D1),
+                          icon: const FaIcon(FontAwesomeIcons.instagram),
+                          color: const Color(0xffffA8B2D1),
                           iconSize: 16.0,
                           onPressed: () {
                             method.launchURL(
                                 "https://www.instagram.com/yasirdx777");
                           }),
                       IconButton(
-                        icon: FaIcon(FontAwesomeIcons.linkedin),
+                        icon: const FaIcon(FontAwesomeIcons.linkedin),
                         color: Color(0xffffA8B2D1),
                         onPressed: () {
                           method.launchURL(
@@ -200,15 +202,15 @@ class _HomePageState extends State<HomePage> {
                         iconSize: 16.0,
                       ),
                       IconButton(
-                          icon: Icon(Icons.call),
-                          color: Color(0xffffA8B2D1),
+                          icon: const Icon(Icons.call),
+                          color: const Color(0xffffA8B2D1),
                           iconSize: 16.0,
                           onPressed: () {
                             method.launchCaller();
                           }),
                       IconButton(
-                          icon: Icon(Icons.mail),
-                          color: Color(0xffffA8B2D1),
+                          icon: const Icon(Icons.mail),
+                          color: const Color(0xffffA8B2D1),
                           iconSize: 16.0,
                           onPressed: () {
                             method.launchEmail();
@@ -240,36 +242,37 @@ class _HomePageState extends State<HomePage> {
                                 SizedBox(
                                   height: size.height * .06,
                                 ),
-                                CustomText(
+                                const CustomText(
                                   text: "Hi, my name is",
                                   textsize: 16.0,
                                   color: Color(0xff41FBDA),
                                   letterSpacing: 3.0,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 6.0,
                                 ),
-                                CustomText(
+                                const CustomText(
                                   text: "Yasir Romaya.",
                                   textsize: 68.0,
                                   color: Color(0xffCCD6F6),
                                   fontWeight: FontWeight.w900,
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 4.0,
                                 ),
                                 CustomText(
                                   text:
                                       "I build things for the iOS and Android.",
                                   textsize: 56.0,
-                                  color: Color(0xffCCD6F6).withOpacity(0.6),
+                                  color:
+                                      const Color(0xffCCD6F6).withOpacity(0.6),
                                   fontWeight: FontWeight.w700,
                                 ),
                                 SizedBox(
                                   height: size.height * .04,
                                 ),
                                 Wrap(
-                                  children: [
+                                  children: const [
                                     Text(
                                       "I'm a mobile application developer based in Suli, IQ specializing in \nbuilding (and occasionally designing) exceptional applications.",
                                       style: TextStyle(
@@ -291,7 +294,7 @@ class _HomePageState extends State<HomePage> {
                                     method.launchEmail();
                                   },
                                   hoverColor:
-                                      Color(0xff64FFDA).withOpacity(0.2),
+                                      const Color(0xff64FFDA).withOpacity(0.2),
                                   borderRadius: BorderRadius.circular(4.0),
                                   child: Container(
                                     alignment: Alignment.center,
@@ -299,11 +302,11 @@ class _HomePageState extends State<HomePage> {
                                     width: size.width * 0.14,
                                     decoration: BoxDecoration(
                                       border: Border.all(
-                                        color: Color(0xff64FFDA),
+                                        color: const Color(0xff64FFDA),
                                       ),
                                       borderRadius: BorderRadius.circular(4.0),
                                     ),
-                                    child: Text(
+                                    child: const Text(
                                       "Get In Touch",
                                       style: TextStyle(
                                         color: Color(0xff64FFDA),
@@ -331,7 +334,7 @@ class _HomePageState extends State<HomePage> {
                             ),
 
                             //Where I've Worked
-                            _wrapScrollTag(index: 1, child: Work()),
+                            _wrapScrollTag(index: 1, child: const Work()),
                             SizedBox(
                               height: size.height * 0.10,
                             ),
@@ -341,7 +344,7 @@ class _HomePageState extends State<HomePage> {
                               index: 2,
                               child: Column(
                                 children: [
-                                  MainTiitle(
+                                  const MainTiitle(
                                     number: "0.3",
                                     text: "Some Things I've Built",
                                   ),
@@ -349,7 +352,7 @@ class _HomePageState extends State<HomePage> {
                                     height: size.height * 0.04,
                                   ),
                                   FeatureProject(
-                                    imagePath: "images/iq_digicare.jpg",
+                                    imagePath: "assets/images/iq_digicare.jpg",
                                     onStoreTab: () {
                                       method.launchURL(
                                           "https://apps.apple.com/us/app/iq-digicare/id1548680750");
@@ -364,7 +367,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
 
                                   FeatureProject(
-                                    imagePath: "images/m_d_s.jpg",
+                                    imagePath: "assets/images/m_d_s.jpg",
                                     onStoreTab: () {
                                       method.launchURL(
                                           "https://apps.apple.com/us/app/m-d-s/id1546895007");
@@ -379,7 +382,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
 
                                   FeatureProject(
-                                    imagePath: "images/rcell.jpg",
+                                    imagePath: "assets/images/rcell.jpg",
                                     onStoreTab: () {
                                       method.launchURL(
                                           "https://play.google.com/store/apps/details?id=me.rcell.my&hl=en&gl=US");
@@ -391,7 +394,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
 
                                   FeatureProject(
-                                    imagePath: "images/r_g.jpg",
+                                    imagePath: "assets/images/r_g.jpg",
                                     onStoreTab: () {
                                       method.launchURL(
                                           "https://apps.apple.com/ae/app/royal-galaxy-restaurant/id1518417047?l=en");
@@ -406,7 +409,8 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   //ff
                                   FeatureProject(
-                                    imagePath: "images/weeana_cinema.jpg",
+                                    imagePath:
+                                        "assets/images/weeana_cinema.jpg",
                                     onStoreTab: () {
                                       method.launchURL(
                                           "https://apps.apple.com/us/app/weeana-cinema/id1498299394");
@@ -421,7 +425,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
 
                                   FeatureProject(
-                                    imagePath: "images/weeana_tv.jpg",
+                                    imagePath: "assets/images/weeana_tv.jpg",
                                     onStoreTab: () {
                                       method.launchURL(
                                           "https://play.google.com/store/apps/details?id=com.iqnetwork.dx.weeanatv&hl=en&gl=US");
@@ -436,7 +440,7 @@ class _HomePageState extends State<HomePage> {
                                     projectTitle: "Weeana TV",
                                   ),
 
-                                  MainTiitle(
+                                  const MainTiitle(
                                     number: "0.4",
                                     text: "Open Source Packages",
                                   ),
@@ -446,7 +450,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
 
                                   FeatureProject(
-                                    imagePath: "images/spb.gif",
+                                    imagePath: "assets/images/spb.gif",
                                     onStoreTab: () {
                                       method.launchURL(
                                           "https://pub.dev/packages/square_progress_bar");
@@ -462,7 +466,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
 
-                            SizedBox(
+                            const SizedBox(
                               height: 6.0,
                             ),
 
@@ -471,7 +475,7 @@ class _HomePageState extends State<HomePage> {
                               index: 3,
                               child: Column(
                                 children: [
-                                  Container(
+                                  SizedBox(
                                     height: size.height * 0.68,
                                     width:
                                         MediaQuery.of(context).size.width - 100,
@@ -480,23 +484,23 @@ class _HomePageState extends State<HomePage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        CustomText(
+                                        const CustomText(
                                           text: "0.4 What's Next?",
                                           textsize: 16.0,
                                           color: Color(0xff41FBDA),
                                           letterSpacing: 3.0,
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 16.0,
                                         ),
-                                        CustomText(
+                                        const CustomText(
                                           text: "Get In Touch",
                                           textsize: 42.0,
                                           color: Colors.white,
                                           letterSpacing: 3.0,
                                           fontWeight: FontWeight.w700,
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 16.0,
                                         ),
                                         Wrap(
@@ -513,7 +517,7 @@ class _HomePageState extends State<HomePage> {
                                             ),
                                           ],
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 32.0,
                                         ),
                                         InkWell(
@@ -535,7 +539,7 @@ class _HomePageState extends State<HomePage> {
                                               borderRadius:
                                                   BorderRadius.circular(4.0),
                                             ),
-                                            child: Text(
+                                            child: const Text(
                                               "Say Hello",
                                               style: TextStyle(
                                                 color: Color(0xff64FFDA),
