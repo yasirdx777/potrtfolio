@@ -123,8 +123,8 @@ class About extends StatelessWidget {
                         child: Column(
                           children: [
                             technology(context, "Python"),
-                            technology(context, "UI/UX (Figma)"),
-                            technology(context, "Git"),
+                            technology(context, "UI/UX"),
+                            technology(context, "Gitflow"),
                             technology(context, "CI/CD"),
                           ],
                         ),

@@ -350,86 +350,90 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   FeatureProject(
                                     imagePath: "images/iq_digicare.jpg",
-                                    ontab: () {
+                                    onStoreTab: () {
                                       method.launchURL(
                                           "https://apps.apple.com/us/app/iq-digicare/id1548680750");
                                     },
+                                    onYouTubeTab: () {
+                                      method.launchURL(
+                                          "https://youtu.be/VFIVBJGrRoY");
+                                    },
                                     projectDesc:
-                                        "iQ Digicare allows our valued customers to have quick and easy access to manage their iQ accounts from the comfort of their own phones.",
+                                        "ISP Selfcare System\n\n-Flutter\n-Map-Internet speed test\n-Calendar manager\n-QR scanner\n-Custom painter\n-Video player\n-In app messages\n-Deeplink\n-Clean architecture",
                                     projectTitle: "iQ Digicare",
-                                    tech1: "Flutter",
-                                    tech2: "Dart",
-                                    tech3: "API",
                                   ),
 
                                   FeatureProject(
                                     imagePath: "images/m_d_s.jpg",
-                                    ontab: () {
+                                    onStoreTab: () {
                                       method.launchURL(
                                           "https://apps.apple.com/us/app/m-d-s/id1546895007");
                                     },
+                                    onYouTubeTab: () {
+                                      method.launchURL(
+                                          "https://youtu.be/lIKKDZ2VJC8");
+                                    },
                                     projectDesc:
-                                        "The M.D.S application is a platform that includes all companies and offices that have a relationship with medical and laboratory devices and the requirements of their categories and types.",
+                                        "Medical Devices Store\n\n-Swift\n-Storyboard\n-MapKit\n-Social\n-File manager\n-Realm\n-MVC",
                                     projectTitle: "M.D.S",
-                                    tech1: "Swift",
-                                    tech2: "UIKit",
-                                    tech3: "API",
                                   ),
 
                                   FeatureProject(
                                     imagePath: "images/rcell.jpg",
-                                    ontab: () {
+                                    onStoreTab: () {
                                       method.launchURL(
                                           "https://play.google.com/store/apps/details?id=me.rcell.my&hl=en&gl=US");
                                     },
+                                    onStoreTabIcon: FontAwesomeIcons.googlePlay,
                                     projectDesc:
-                                        "Through “Rcell” app you can manage your Rcell account such as checking your remaining quota, expiry, recharging your account, subscribe to new bonuses and etc...",
+                                        "4G Quota App\n\n-Flutter\n-QR scanner\n-Custom painter\n-In app messages\n-MVC",
                                     projectTitle: "Rcell",
-                                    tech1: "Dart",
-                                    tech2: "Flutter",
-                                    tech3: "API",
                                   ),
 
                                   FeatureProject(
                                     imagePath: "images/r_g.jpg",
-                                    ontab: () {
+                                    onStoreTab: () {
                                       method.launchURL(
                                           "https://apps.apple.com/ae/app/royal-galaxy-restaurant/id1518417047?l=en");
                                     },
+                                    onYouTubeTab: () {
+                                      method.launchURL(
+                                          "https://youtu.be/7dKQAt5srIU");
+                                    },
                                     projectDesc:
-                                        "With this application, you can browse various categories of meals from our Royal Galaxy restaurant that you can order and track your order status until the delivery reaches your place and pay in cash also you can send us feedback about the quality of the delivery.",
+                                        "Food Delivery System\n\n-Swift\n-Storyboard\n-MapKit\n-OTP Auth\n-In app messages\n-Realm\n-MVC",
                                     projectTitle: "Royal Galaxy",
-                                    tech1: "Swift",
-                                    tech2: "UIKit",
-                                    tech3: "API",
                                   ),
                                   //ff
                                   FeatureProject(
                                     imagePath: "images/weeana_cinema.jpg",
-                                    ontab: () {
+                                    onStoreTab: () {
                                       method.launchURL(
                                           "https://apps.apple.com/us/app/weeana-cinema/id1498299394");
                                     },
+                                    onYouTubeTab: () {
+                                      method.launchURL(
+                                          "https://youtu.be/mXIjgM3dPSc");
+                                    },
                                     projectDesc:
-                                        "With this application you can know about the movies and series that exposure in our tv cable service now and preview it.",
+                                        "Media Stream Platfrom\n\n-Swift\n-UIKit\n-SnapKit\n-AVPlayerLayer\n-File manager\n-Realm\n-VIPER",
                                     projectTitle: "Weeana Cinema",
-                                    tech1: "Swift",
-                                    tech2: "UIKit",
-                                    tech3: "AVPlayer",
                                   ),
 
                                   FeatureProject(
                                     imagePath: "images/weeana_tv.jpg",
-                                    ontab: () {
+                                    onStoreTab: () {
                                       method.launchURL(
                                           "https://play.google.com/store/apps/details?id=com.iqnetwork.dx.weeanatv&hl=en&gl=US");
                                     },
+                                    onStoreTabIcon: FontAwesomeIcons.googlePlay,
+                                    onYouTubeTab: () {
+                                      method.launchURL(
+                                          "https://youtube.com/shorts/omsiJM4hhCo?feature=share");
+                                    },
                                     projectDesc:
-                                        "With this application now you can know the latest movies and series that exposure in our tv cable service.",
+                                        "TV Channels Platfrom\n\n-Kotlin\n-Java\n-Nav graph\n-Exoplayer\n-HLS\n-Chromecast\n-Room\n-MVC",
                                     projectTitle: "Weeana TV",
-                                    tech1: "Kotlin",
-                                    tech2: "Java",
-                                    tech3: "Exoplayer",
                                   ),
 
                                   MainTiitle(
@@ -443,16 +447,14 @@ class _HomePageState extends State<HomePage> {
 
                                   FeatureProject(
                                     imagePath: "images/spb.gif",
-                                    ontab: () {
+                                    onStoreTab: () {
                                       method.launchURL(
                                           "https://pub.dev/packages/square_progress_bar");
                                     },
+                                    onStoreTabIcon: FontAwesomeIcons.github,
                                     projectDesc:
-                                        "Square progress bar package for flutter",
+                                        "Progress bar package for Flutter\n\n-Custom painter\n-Tween animation",
                                     projectTitle: "square_progress_bar",
-                                    tech1: "Dart",
-                                    tech2: "Flutter",
-                                    tech3: "Custom Painter",
                                   ),
 
                                   //other Projects

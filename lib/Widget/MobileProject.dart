@@ -1,24 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MobileProject extends StatelessWidget {
-  final Function ontab;
   final String image;
 
-  MobileProject({this.ontab, this.image});
+  final Function onStoreTab;
+  final onStoreTabIcon;
+  final onYouTubeTab;
+  final onYouTubeTabIcon;
+
+  MobileProject({
+    this.onStoreTab,
+    this.onStoreTabIcon,
+    this.onYouTubeTab,
+    this.onYouTubeTabIcon,
+    this.image,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: GestureDetector(
-        onTap: ontab,
-        child: Container(
-          height: MediaQuery.of(context).size.height * 0.36,
-          width: MediaQuery.of(context).size.width * 0.8,
-          child: Image(
-            fit: BoxFit.contain,
-            image: AssetImage(image),
+      child: Stack(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.4,
+            width: MediaQuery.of(context).size.width * 1,
+            child: Image(
+              fit: BoxFit.contain,
+              image: AssetImage(image),
+            ),
           ),
-        ),
+
+          // Store Link
+          Positioned(
+            bottom: 5,
+            right: 15,
+            child: IconButton(
+              icon: FaIcon(onStoreTabIcon ?? FontAwesomeIcons.appStore),
+              color: Colors.white.withOpacity(0.3),
+              onPressed: onStoreTab,
+            ),
+          ),
+
+          // Preview Link
+          onYouTubeTab != null
+              ? Positioned(
+                  bottom: 5,
+                  right: 60,
+                  child: IconButton(
+                    icon: FaIcon(onYouTubeTabIcon ?? FontAwesomeIcons.youtube),
+                    color: Colors.white.withOpacity(0.3),
+                    onPressed: onYouTubeTab,
+                  ),
+                )
+              : SizedBox(),
+        ],
       ),
     );
   }

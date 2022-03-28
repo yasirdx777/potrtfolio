@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../Model/Method.dart';
@@ -271,8 +270,8 @@ class _MobileHomeState extends State<MobileHome> {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 technology(context, "Python"),
-                                technology(context, "UI/UX (Figma)"),
-                                technology(context, "Git"),
+                                technology(context, "UI/UX"),
+                                technology(context, "Gitflow"),
                                 technology(context, "CI/CD"),
                               ],
                             ),
@@ -398,11 +397,14 @@ class _MobileHomeState extends State<MobileHome> {
               ),
 
               MobileProject(
-                ontab: () {
+                onStoreTab: () {
                   method.launchURL(
                       "https://apps.apple.com/us/app/iq-digicare/id1548680750");
                 },
-                image: "images/iq_digicare.jpg",
+                onYouTubeTab: () {
+                  method.launchURL("https://youtu.be/VFIVBJGrRoY");
+                },
+                image: "images/iq_digicare_m.jpg",
               ),
 
               SizedBox(
@@ -410,11 +412,14 @@ class _MobileHomeState extends State<MobileHome> {
               ),
 
               MobileProject(
-                ontab: () {
+                onStoreTab: () {
                   method.launchURL(
                       "https://apps.apple.com/us/app/m-d-s/id1546895007");
                 },
-                image: "images/m_d_s.jpg",
+                onYouTubeTab: () {
+                  method.launchURL("https://youtu.be/lIKKDZ2VJC8");
+                },
+                image: "images/m_d_s_m.jpg",
               ),
 
               SizedBox(
@@ -422,11 +427,12 @@ class _MobileHomeState extends State<MobileHome> {
               ),
 
               MobileProject(
-                ontab: () {
+                onStoreTab: () {
                   method.launchURL(
                       "https://play.google.com/store/apps/details?id=me.rcell.my&hl=en&gl=US");
                 },
-                image: "images/rcell.jpg",
+                onStoreTabIcon: FontAwesomeIcons.googlePlay,
+                image: "images/rcell_m.jpg",
               ),
 
               SizedBox(
@@ -434,11 +440,14 @@ class _MobileHomeState extends State<MobileHome> {
               ),
 
               MobileProject(
-                ontab: () {
+                onStoreTab: () {
                   method.launchURL(
                       "https://apps.apple.com/ae/app/royal-galaxy-restaurant/id1518417047?l=en");
                 },
-                image: "images/r_g.jpg",
+                onYouTubeTab: () {
+                  method.launchURL("https://youtu.be/7dKQAt5srIU");
+                },
+                image: "images/r_g_m.jpg",
               ),
 
               SizedBox(
@@ -446,11 +455,14 @@ class _MobileHomeState extends State<MobileHome> {
               ),
 
               MobileProject(
-                ontab: () {
+                onStoreTab: () {
                   method.launchURL(
                       "https://apps.apple.com/us/app/weeana-cinema/id1498299394");
                 },
-                image: "images/weeana_cinema.jpg",
+                onYouTubeTab: () {
+                  method.launchURL("https://youtu.be/mXIjgM3dPSc");
+                },
+                image: "images/weeana_cinema_m.jpg",
               ),
 
               SizedBox(
@@ -458,11 +470,16 @@ class _MobileHomeState extends State<MobileHome> {
               ),
 
               MobileProject(
-                ontab: () {
+                onStoreTab: () {
                   method.launchURL(
                       "https://play.google.com/store/apps/details?id=com.iqnetwork.dx.weeanatv&hl=en&gl=US");
                 },
-                image: "images/weeana_tv.jpg",
+                onStoreTabIcon: FontAwesomeIcons.googlePlay,
+                onYouTubeTab: () {
+                  method.launchURL(
+                      "https://youtube.com/shorts/omsiJM4hhCo?feature=share");
+                },
+                image: "images/weeana_tv_m.jpg",
               ),
 
               SizedBox(
@@ -470,11 +487,12 @@ class _MobileHomeState extends State<MobileHome> {
               ),
 
               MobileProject(
-                ontab: () {
+                onStoreTab: () {
                   method.launchURL(
                       "https://pub.dev/packages/square_progress_bar");
                 },
-                image: "images/spb.gif",
+                onStoreTabIcon: FontAwesomeIcons.github,
+                image: "images/spb_m.gif",
               ),
 
               SizedBox(

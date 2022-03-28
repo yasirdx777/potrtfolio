@@ -6,19 +6,21 @@ class FeatureProject extends StatelessWidget {
   final String imagePath;
   final String projectTitle;
   final String projectDesc;
-  final String tech1;
-  final String tech2;
-  final String tech3;
-  final Function ontab;
 
-  FeatureProject(
-      {this.imagePath,
-      this.ontab,
-      this.projectDesc,
-      this.projectTitle,
-      this.tech1,
-      this.tech2,
-      this.tech3});
+  final Function onStoreTab;
+  final onStoreTabIcon;
+  final onYouTubeTab;
+  final onYouTubeTabIcon;
+
+  FeatureProject({
+    this.imagePath,
+    this.onStoreTab,
+    this.onStoreTabIcon,
+    this.onYouTubeTab,
+    this.onYouTubeTabIcon,
+    this.projectDesc,
+    this.projectTitle,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -55,8 +57,8 @@ class FeatureProject extends StatelessWidget {
                   right: 10.0,
                   child: Container(
                     alignment: Alignment.center,
-                    height: size.height * 0.18,
-                    width: size.width * 0.35,
+                    height: size.height * 0.3,
+                    width: size.width * 0.22,
                     color: Color(0xff172A45),
                     child: Wrap(
                       alignment: WrapAlignment.center,
@@ -99,49 +101,9 @@ class FeatureProject extends StatelessWidget {
                   ),
                 ),
 
-                // Project Resources
+                // Store Link
                 Positioned(
-                  top: size.height * 0.36,
-                  right: 10.0,
-                  child: Container(
-                    height: size.height * 0.08,
-                    width: size.width * 0.25,
-                    // color: Colors.indigo,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        CustomText(
-                          text: tech1 == null ? "" : tech1,
-                          textsize: 14,
-                          color: Colors.grey,
-                          letterSpacing: 1.75,
-                        ),
-                        SizedBox(
-                          width: 16.0,
-                        ),
-                        CustomText(
-                          text: tech2 == null ? "" : tech2,
-                          textsize: 14,
-                          color: Colors.grey,
-                          letterSpacing: 1.75,
-                        ),
-                        SizedBox(
-                          width: 16.0,
-                        ),
-                        CustomText(
-                          text: tech3 == null ? "" : tech3,
-                          textsize: 14,
-                          color: Colors.grey,
-                          letterSpacing: 1.75,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-
-                // Gitub Link
-                Positioned(
-                  top: size.height * 0.42,
+                  top: size.height * 0.45,
                   right: 10.0,
                   child: Container(
                     height: size.height * 0.08,
@@ -151,14 +113,39 @@ class FeatureProject extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         IconButton(
-                          icon: FaIcon(FontAwesomeIcons.link),
+                          icon: FaIcon(
+                              onStoreTabIcon ?? FontAwesomeIcons.appStore),
                           color: Colors.white.withOpacity(0.3),
-                          onPressed: ontab,
+                          onPressed: onStoreTab,
                         ),
                       ],
                     ),
                   ),
                 ),
+
+                // Preview Link
+                onYouTubeTab != null
+                    ? Positioned(
+                        top: size.height * 0.45,
+                        right: 60.0,
+                        child: Container(
+                          height: size.height * 0.08,
+                          width: size.width * 0.25,
+                          // color: Colors.indigo,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              IconButton(
+                                icon: FaIcon(onYouTubeTabIcon ??
+                                    FontAwesomeIcons.youtube),
+                                color: Colors.white.withOpacity(0.3),
+                                onPressed: onYouTubeTab,
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    : SizedBox(),
               ],
             ),
           ),
