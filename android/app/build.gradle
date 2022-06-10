@@ -60,7 +60,7 @@ android {
 }
 
 flutter {
-    source '../..'
+    source 'package:potrtfolio/widget/..'
 }
 
 dependencies {

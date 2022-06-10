@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../widget/custom_text.dart';
+import 'package:potrtfolio/widget/custom_text.dart';
 
 class FeatureProject extends StatelessWidget {
   final String imagePath;

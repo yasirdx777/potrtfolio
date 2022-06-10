@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widget/custom_text.dart';
+import 'package:potrtfolio/widget/custom_text.dart';
 
 class About extends StatelessWidget {
   const About({Key? key}) : super(key: key);

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../widget/custom_text.dart';
-import '../widget/work_box.dart';
+import 'package:potrtfolio/widget/custom_text.dart';
+import 'package:potrtfolio/widget/work_box.dart';
 
 class Work extends StatefulWidget {
   const Work({Key? key}) : super(key: key);

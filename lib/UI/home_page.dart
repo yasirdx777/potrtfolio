@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:potrtfolio/model/method.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
-import '../Model/Method.dart';
-import '../widget/app_bar_title.dart';
-import '../widget/custom_text.dart';
-import '../widget/main_tiitle.dart';
+import 'package:potrtfolio/widget/app_bar_title.dart';
+import 'package:potrtfolio/widget/custom_text.dart';
+import 'package:potrtfolio/widget/main_tiitle.dart';
 import 'about.dart';
 import 'feature_project.dart';
 import 'work.dart';

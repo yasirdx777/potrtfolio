@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:potrtfolio/model/method.dart';
 
-import '../Model/Method.dart';
-import '../widget/custom_text.dart';
-import '../widget/mobile_project.dart';
-import '../widget/mobile_work.dart';
+import 'package:potrtfolio/widget/custom_text.dart';
+import 'package:potrtfolio/widget/mobile_project.dart';
+import 'package:potrtfolio/widget/mobile_work.dart';
 
 class MobileHome extends StatefulWidget {
   const MobileHome({Key? key}) : super(key: key);
